@@ -4,7 +4,8 @@ on:
   push:
     branches:
       - main
-      ##will be -feature/
+      - feature/Kelsie
+      # - feature/*
 
 jobs:
   test_push:
@@ -21,11 +22,8 @@ jobs:
         run: npm ci
       - name: Run tests
         run: npm run test
-        run: npm run test
-     - name: Build
+      - name: Build
         run: npm run build --if-present
-
-
 ####################################
 
 # name: Develop Branches Build, Test, Deploy to Test
@@ -76,7 +74,7 @@ jobs:
 #         name: node-app
 
 #     - name: 'Deploy to Azure WebApp'
-#       id: deploy-to-webapp 
+#       id: deploy-to-webapp
 #       uses: azure/webapps-deploy@85270a1854658d167ab239bce43949edb336fa7c
 #       with:
 #         app-name: ${{ env.AZURE_WEBAPP_NAME }}
@@ -133,14 +131,12 @@ jobs:
 #         name: node-app
 
 #     - name: 'Deploy to Azure WebApp'
-#       id: deploy-to-webapp 
+#       id: deploy-to-webapp
 #       uses: azure/webapps-deploy@85270a1854658d167ab239bce43949edb336fa7c
 #       with:
 #         app-name: ${{ env.AZURE_WEBAPP_NAME }}
 #         publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
 #         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
-
-
 
 # ####################################
 
@@ -192,7 +188,7 @@ jobs:
 #         name: node-app
 
 #     - name: 'Deploy to Azure WebApp'
-#       id: deploy-to-webapp 
+#       id: deploy-to-webapp
 #       uses: azure/webapps-deploy@85270a1854658d167ab239bce43949edb336fa7c
 #       with:
 #         app-name: ${{ env.AZURE_WEBAPP_NAME }}
