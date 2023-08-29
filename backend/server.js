@@ -15,20 +15,18 @@ app.use(cors());
 //test data for testing Azure deployment
 const myTestData = [
   {
-  "Name": "Luis",
-  "Fab-Food": "BBQ"
+    Name: "Luis",
+    "Fab-Food": "BBQ",
   },
   {
-    "Name": "Kelsie",
-    "Fab-Food": "Marmite"
-  }
-
-]
+    Name: "Kelsie",
+    "Fab-Food": "Marmite",
+  },
+];
 // test get api for testing Azure
 app.get("/", (req, res) => {
   res.json(myTestData);
 });
-
 
 app.post("/api", async (req, res) => {
   try {
@@ -41,11 +39,11 @@ app.post("/api", async (req, res) => {
       "Content-Type": contentType,
     };
 
-    const response = await axios.post(apiAddress,imageBinary,{ headers });
+    const response = await axios.post(apiAddress, imageBinary, { headers });
 
     // res.json(response.data);
 
-           //filter to only capture high probabilty json data received only. 
+    //filter to only capture high probabilty json data received only.
     const highProbabilityPredictions = [];
     for (const prediction of response.data.predictions) {
       if (prediction.probability >= 0.6) {
@@ -54,7 +52,6 @@ app.post("/api", async (req, res) => {
     }
 
     res.json(highProbabilityPredictions);
-
   } catch (error) {
     console.error("Error making the prediction:", error);
     res
