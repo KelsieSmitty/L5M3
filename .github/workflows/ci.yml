@@ -3,8 +3,8 @@ name: Feature Branches Build & Test
 on:
   push:
     branches:
-      - feature/Kelsie
-      - feature/luis
+      - main
+      ##will be -feature/
 
 jobs:
   test_push:
@@ -20,6 +20,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Run tests
+        run: npm run test
         run: npm run test
      - name: Build
         run: npm run build --if-present
