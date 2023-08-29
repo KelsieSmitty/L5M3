@@ -3,7 +3,7 @@ name: CI Test
 on:
   push:
     branches:
-      - feature/Kelsie
+      - main
 
 jobs:
   test_push:
