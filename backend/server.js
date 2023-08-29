@@ -12,6 +12,24 @@ const apiAddress = process.env.API_ADDRESS;
 app.use(express.raw({ type: "image/jpeg", limit: "10mb" }));
 app.use(cors());
 
+//test data for testing Azure deployment
+const myTestData = [
+  {
+  "Name": "Luis",
+  "Fab-Food": "BBQ"
+  },
+  {
+    "Name": "Kelsie",
+    "Fab-Food": "Marmite"
+  }
+
+]
+// test get api for testing Azure
+app.get("/", (req, res) => {
+  res.json(myTestData);
+});
+
+
 app.post("/api", async (req, res) => {
   try {
     const imageBinary = req.body;
