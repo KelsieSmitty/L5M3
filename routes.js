@@ -3,7 +3,7 @@ const axios = require("axios");
 
 const router = express.Router();
 
-router.post("/api", async (req, res) => {
+router.post("/upload", async (req, res) => {
   try {
     const imageBinary = req.body;
     const predictionKey = process.env.PREDICTION_KEY;
