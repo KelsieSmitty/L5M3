@@ -11,6 +11,6 @@ describe("API Tests", () => {
       .set("Content-Type", "image/jpeg")
       .send(imageBuffer);
 
-    expect(response.status).toEqual(200);
+    expect(response.status).toBe(200);
   });
 });
