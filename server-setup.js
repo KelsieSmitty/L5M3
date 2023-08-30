@@ -5,7 +5,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 3001;
+const port = 4000;
 
 app.use(express.raw({ type: "image/jpeg", limit: "10mb" }));
 app.use(cors());
