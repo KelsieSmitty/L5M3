@@ -17,6 +17,9 @@ describe("POST /api", () => {
     // Make a request to your Express app using supertest
     const response = await request(serverApp).post("/api").send(imageData);
 
+    //  const responseBody = response.body; 
+    //  expect(responseBody).toHaveProperty("predictions");
+
     expect(response.statusCode).toBe(200);
     // Add more assertions to check the response data as needed
   });
