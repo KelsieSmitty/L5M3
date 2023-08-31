@@ -5,10 +5,10 @@ on:
     branches:
       - testing/Kelsie
 
-env:
-  AZURE_WEBAPP_NAME: "M3-Prediction-API" # set this to your application's name
-  AZURE_WEBAPP_PACKAGE_PATH: "./" # set this to the path to your web app project, defaults to the repository root
-  NODE_VERSION: "20.x" # set this to the node version to use
+# env:
+#   AZURE_WEBAPP_NAME: "M3-Prediction-API" # set this to your application's name
+#   AZURE_WEBAPP_PACKAGE_PATH: "./" # set this to the path to your web app project, defaults to the repository root
+#   NODE_VERSION: "20.x" # set this to the node version to use
 
 jobs:
   build:
@@ -19,7 +19,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version: 20.x
           cache: "npm"
 
       - name: npm install, build, and test
@@ -50,7 +50,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@85270a1854658d167ab239bce43949edb336fa7c
         with:
-          app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          app-name: "M3-Prediction-API"
           slot-name: "production"
           publish-profile: ${{ secrets.M3_PUBLISH_PROFILE }}
-          package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+          package: "./"
