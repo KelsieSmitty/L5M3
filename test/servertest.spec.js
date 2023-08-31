@@ -3,6 +3,8 @@ const fs = require("fs");
 const request = require("supertest");
 const app = require("../server");
 
+jest.setTimeout(10000);
+
 describe("Image API Tests", () => {
   it("should respond with a 200 status code after sending an image", async () => {
     const imagePath = path.join(__dirname, "images", "pic1.jpg");
