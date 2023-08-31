@@ -1,17 +1,18 @@
-const request = require("supertest");
-const { app } = require("../server-setup");
-const apiRequest = request(app);
+const path = require("path");
 const fs = require("fs");
+const request = require("supertest");
+const app = require("../server");
 
-describe("API Tests", () => {
-  it("should respond with 200 OK when POSTing to /api", async () => {
-    const imageBuffer = fs.readFileSync("./images/testcar1.jpg");
+describe("Image API Tests", () => {
+  it("should respond with a 200 status code after sending an image", async () => {
+    const imagePath = path.join(__dirname, "images", "car.jpg");
+    const imageBuffer = fs.readFileSync(imagePath);
 
-    const response = await apiRequest
-      .post("/api/upload")
-      .set("Content-Type", "image/jpg")
-      .attach(imageBuffer);
+    const response = await request(app)
+      .post("/api/")
+      .send(imageBuffer)
+      .set("Content-Type", "image/jpeg");
 
-    expect(response.status).toEqual(200);
+    expect(response.status).toBe(200);
   });
 });
