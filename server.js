@@ -41,8 +41,6 @@ app.post("/api", async (req, res) => {
 
     const response = await axios.post(apiAddress, imageBinary, { headers });
 
-    // res.json(response.data);
-
     //filter to only capture high probabilty json data received only.
     const highProbabilityPredictions = [];
     for (const prediction of response.data.predictions) {
