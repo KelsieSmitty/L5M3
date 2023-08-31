@@ -1,4 +1,4 @@
-name: Turners AutoMatchmaker Build & Test
+name: Turners AutoMatchmaker Build & Test.
 
 on:
   push:
