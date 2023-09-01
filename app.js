@@ -22,7 +22,7 @@ const myTestData = [
   },
 ];
 
-// test get API for testing Azure
+// test get API for testing Azure.
 app.get("/", (req, res) => {
   res.json(myTestData);
 });
