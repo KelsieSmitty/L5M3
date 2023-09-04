@@ -1,7 +1,7 @@
 const path = require("path");
 const fs = require("fs");
 const request = require("supertest");
-const app = require("../app");
+const app = require("../server.js");
 
 describe("Image API Tests", () => {
   it("should respond with a 200 status code after sending an image", async () => {
