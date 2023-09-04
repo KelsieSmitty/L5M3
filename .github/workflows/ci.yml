@@ -3,7 +3,7 @@ name: Turners AutoMatchmaker Build & Test
 on:
   push:
     branches:
-      - development/Kelsie
+      - main
 
 env:
   AZURE_WEBAPP_NAME: "M3-Prediction-API"
