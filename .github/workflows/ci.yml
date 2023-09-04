@@ -32,6 +32,11 @@ jobs:
           npm run build --if-present
 
       - name: test
+        env:
+          PREDICTION_KEY: ${{ secrets.PREDICTION_KEY }}
+          PORT: ${{ secrets.PORT }}
+          CONTENT_TYPE: ${{ secrets.CONTENT_TYPE }}
+          API_ADDRESS: ${{ secrets.API_ADDRESS }}
         run: |
           npm run test
 
