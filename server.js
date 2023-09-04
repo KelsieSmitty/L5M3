@@ -6,8 +6,9 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 3001;
-const apiAddress = process.env.API_ADDRESS;
+const port = 4000;
+const apiAddress =
+  "https://southeastasia.api.cognitive.microsoft.com/customvision/v3.0/Prediction/7389928b-4f78-4fbc-8f08-62b7344e48e0/detect/iterations/Iteration2/image";
 
 app.use(express.raw({ type: "image/jpeg", limit: "10mb" }));
 app.use(cors());
@@ -35,8 +36,8 @@ app.post("/api", async (req, res) => {
     const contentType = process.env.CONTENT_TYPE;
 
     const headers = {
-      "Prediction-Key": predictionKey,
-      "Content-Type": contentType,
+      "Prediction-Key": "9d6da94844954dad803e94907e7f47fc",
+      "Content-Type": "application/octet-stream",
     };
 
     const response = await axios.post(apiAddress, imageBinary, { headers });
